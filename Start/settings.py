@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,10 +83,23 @@ WSGI_APPLICATION = 'Start.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+load_dotenv('database.env')
+
+name = os.getenv("NAME")
+user = os.getenv("USER")
+password = os.getenv("PASSWORD")
+host = os.getenv("HOST")
+port = os.getenv("PORT")
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'finance',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',  # Cambia esto si tu base de datos está en otro host
+        'PORT': '3306',       # Cambia el puerto si es necesario
     }
 }
 
@@ -134,7 +149,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'users.User'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # URL de tu frontend
@@ -143,7 +159,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.user'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
