@@ -9,7 +9,7 @@ const Layout = () => {
       <div>
           <Toaster />
           <Header />
-        <div className="min-h-[1000px] bg-white dark:bg-gray-900">
+        <div className="min-vh-100 bg-white bg-dark">
             <Outlet />
         </div>
       </div>
