@@ -7,15 +7,12 @@ import { useAuthStore } from "../store/auth";
 import logo from '../assets/logo.png';
 
 const LoginPage = () => {
-
     const navigate = useNavigate();
     const { isAuth } = useAuthStore();
     const setToken = useAuthStore((state) => state.setToken);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    
 
     const loginMutation = useMutation({
         mutationFn: () => loginRequest(email, password),
@@ -38,45 +35,43 @@ const LoginPage = () => {
     if (isAuth) return (<Navigate to="/"/>)
 
     return (
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[800px] lg:py-0">
-        <Link to="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        <img className="w-12 h-12 mr-2" 
-                    src={logo}
-          alt="logo"/>
-          <span> Finance Manager </span>
-        </Link>
-        <div className="w-full md:w-[400px] lg:w-[500px] bg-slate-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Log In 
-            </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+      
+      
+        <body className="bg-secondary container-fluid d-flex flex-column align-items-center justify-content-center vh-100 vw-100"  >
+          <div className="bg-secondary container d-flex flex-column align-items-center justify-content-center py-5 " >
 
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                <input 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"/>
-              </div>
+            <Link to="" className="d-flex align-items-center mb-4 text-2xl font-weight-bold text-dark">
+                <img className="img-fluid  img-size-24" src={logo} alt="logo"  style={{ width: '64px', height: 'auto' }}/>
+            </Link>
+            <h1 style={{ color: 'white' }}>Finance Manager</h1>
 
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-              </div>
-
-              <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Dont have an account? <Link to={'/register'} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
-              </p>
-            </form>
+            <div className="w-100 max-w-md bg-light rounded-lg shadow-sm" style={{ background: '#454d55' }}>
+                <div className="p-4" style={{ background: '#454d55' }}>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3" style={{ background: '#454d55' }}>
+                            <label htmlFor="email" className="form-label mb-2" style={{ color: 'white' }}>mail</label>
+                            <input
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                type="email" name="email" id="email" className="form-control" placeholder="name@company.com" />
+                        </div>
+                        <div className="mb-3" style={{ background: '#454d55' }}>
+                            <label htmlFor="password" className="form-label mb-2" style={{ color: 'white' }}>Password</label>
+                            <input
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password" name="password" id="password" className="form-control" placeholder="password" />
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100 mb-3" style={{ color: 'white' }}>Sign in</button>
+                        <p className="text-sm text-gray-500">
+                            Don't have an account? <Link to="/register" className="font-weight-bold text-primary">Sign up</Link>
+                        </p>
+                    </form>
+                </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </body>
     )
-    
 }
+
 export default LoginPage;

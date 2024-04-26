@@ -48,22 +48,20 @@ const RegisterPage = () => {
     if (isAuth) return (<Navigate to="/"/>)
 
     return (
-      <div className="flex flex-col items-center justify-center px-2 py-4 mx-auto md:h-[800px] lg:py-0">
-        <Link to="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img className="w-12 h-12 mr-2" 
-                    src={logo}
-          alt="logo"/>
-          <span> Finance Manager </span>
+      <body className="bg-secondary container-fluid d-flex flex-column align-items-center justify-content-center vh-100 vw-100"  >
+        <Link to="" className="d-flex align-items-center mb-4 text-2xl font-weight-bold text-dark">
+                <img className="img-fluid  img-size-24" src={logo} alt="logo"  style={{ width: '64px', height: 'auto' }}/>
         </Link>
-        <div className="w-full md:w-[400px] lg:w-[500px] bg-slate-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Create a new account 
-            </h1>
+            <h1 style={{ color: 'white' }}>Finance Manager</h1>
+            <h2 style={{ color: 'white' }}>Create a new account</h2>
+        
+        <div className="w-100 max-w-md bg-light rounded-lg shadow-sm" style={{ background: '#454d55' }}>
+          <div className="p-4" style={{ background: '#454d55' }}>
+            
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
 
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">mail</label>
                 <input 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -78,11 +76,11 @@ const RegisterPage = () => {
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
-                type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                type="password" name="password" id="password" placeholder="Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               </div>
 
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input 
                 value={name}
                 required
@@ -108,7 +106,7 @@ const RegisterPage = () => {
             </form>
           </div>
         </div>
-      </div>
+      </body>
     )
     
 }

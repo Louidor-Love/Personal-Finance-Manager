@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework.authtoken',
     'drf_spectacular',
-    'users',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +90,7 @@ user = os.getenv("USER")
 password = os.getenv("PASSWORD")
 host = os.getenv("HOST")
 port = os.getenv("PORT")
+
 
 
 DATABASES = {
