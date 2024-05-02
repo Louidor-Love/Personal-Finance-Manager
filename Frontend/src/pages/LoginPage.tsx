@@ -49,7 +49,7 @@ const LoginPage = () => {
                 <div className="p-4" style={{ background: '#454d55' }}>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3" style={{ background: '#454d55' }}>
-                            <label htmlFor="email" className="form-label mb-2" style={{ color: 'white' }}>mail</label>
+                            <label htmlFor="email" className="form-label mb-2" style={{ color: 'white' }}>email</label>
                             <input
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}

@@ -48,54 +48,55 @@ const RegisterPage = () => {
     if (isAuth) return (<Navigate to="/"/>)
 
     return (
+
       <body className="bg-secondary container-fluid d-flex flex-column align-items-center justify-content-center vh-100 vw-100"  >
-        <Link to="" className="d-flex align-items-center mb-4 text-2xl font-weight-bold text-dark">
-                <img className="img-fluid  img-size-24" src={logo} alt="logo"  style={{ width: '64px', height: 'auto' }}/>
-        </Link>
-            <h1 style={{ color: 'white' }}>Finance Manager</h1>
-            <h2 style={{ color: 'white' }}>Create a new account</h2>
+        <div className="bg-secondary container d-flex flex-column align-items-center justify-content-center py-5 " >
+          
+          <Link to="" className="d-flex align-items-center mb-4 text-2xl font-weight-bold text-dark">
+              <img className="img-fluid  img-size-24" src={logo} alt="logo"  style={{ width: '64px', height: 'auto' }}/>
+          </Link>
+          <h1 style={{ color: 'white' }}>Finance Manager</h1>
+          <h2 style={{ color: 'white' }}>Create a new account</h2>
         
-        <div className="w-100 max-w-md bg-light rounded-lg shadow-sm" style={{ background: '#454d55' }}>
-          <div className="p-4" style={{ background: '#454d55' }}>
-            
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+          <div className="w-100 max-w-md bg-light rounded-lg shadow-sm" style={{ background: '#454d55' }}>
+              <div className="p-4" style={{ background: '#454d55' }}>
+                <form  onSubmit={handleSubmit}>
+                    <div className="mb-3" style={{ background: '#454d55' }}>
+                        <label htmlFor="email" className="form-label mb-2" style={{ color: 'white' }}>email</label>
+                        <input 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type="email" 
+                            required
+                            name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"/>
+                    </div>
 
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">mail</label>
-                <input 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email" 
-                required
-                name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"/>
-              </div>
+                    <div className="mb-3" style={{ background: '#454d55' }}>
+                         <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                         <input 
+                             value={password}
+                             required
+                             onChange={(e) => setPassword(e.target.value)}
+                             type="password" name="password" id="password" placeholder="Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                    </div>
 
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input 
-                value={password}
-                required
-                onChange={(e) => setPassword(e.target.value)}
-                type="password" name="password" id="password" placeholder="Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-              </div>
+                    <div className="mb-3" style={{ background: '#454d55' }}>
+                      <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                      <input 
+                          value={name}
+                          required
+                          onChange={(e) => setName(e.target.value)}
+                          type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name"/>
+                    </div>
 
-              <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                <input 
-                value={name}
-                required
-                onChange={(e) => setName(e.target.value)}
-                type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name"/>
-              </div>
-
-              <div>
-                <label htmlFor="re-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                <input 
-                value={re_password}
-                required
-                onChange={(e) => setRePassword(e.target.value)}
-                type="password" name="re-password" id="re-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-              </div>
+                    <div className="mb-3" style={{ background: '#454d55' }}>
+                      <label htmlFor="re-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
+                      <input 
+                          value={re_password}
+                          required
+                          onChange={(e) => setRePassword(e.target.value)}
+                          type="password" name="re-password" id="re-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                    </div>
 
             {handleMatch() ? false : <p className="text-sm font-medium text-red-500">Passwords must match</p>}
 
@@ -104,6 +105,7 @@ const RegisterPage = () => {
                 Have an account? <Link to={'/login'} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in</Link>
               </p>
             </form>
+              </div>
           </div>
         </div>
       </body>
