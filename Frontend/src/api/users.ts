@@ -28,7 +28,7 @@ export const get_users = async () => {
    return response.data
 };
 
-export const registerRequest = async (email: string, name: string, password: string) => {
+export const registerRequest = async (email: string, password: string,name: string) => {
     await axi.post("/create/", {email, password, name})
 };
 

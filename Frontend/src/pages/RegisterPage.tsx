@@ -12,8 +12,8 @@ const RegisterPage = () => {
     const { isAuth } = useAuthStore();
 
     const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
     const [re_password, setRePassword] = useState("");
 
     const registerMutation = useMutation({
@@ -49,8 +49,8 @@ const RegisterPage = () => {
 
     return (
 
-      <body className="bg-secondary container-fluid d-flex flex-column align-items-center justify-content-center vh-100 vw-100"  >
-        <div className="bg-secondary container d-flex flex-column align-items-center justify-content-center py-5 " >
+      <body className="bg-secondary container-fluid d-flex flex-column align-items-center justify-content-center vh-50 vw-50">
+        <div className="bg-secondary container d-flex flex-column align-items-center justify-content-center py-5 ">
           
           <Link to="" className="d-flex align-items-center mb-4 text-2xl font-weight-bold text-dark">
               <img className="img-fluid  img-size-24" src={logo} alt="logo"  style={{ width: '64px', height: 'auto' }}/>
@@ -68,43 +68,44 @@ const RegisterPage = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             type="email" 
                             required
-                            name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"/>
+                            name="email" id="email" className="form-control" placeholder="name@company.com"/>
                     </div>
 
                     <div className="mb-3" style={{ background: '#454d55' }}>
-                         <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                         <label htmlFor="password" className="form-label mb-2" style={{ color: 'white' }}>Password</label>
                          <input 
                              value={password}
                              required
                              onChange={(e) => setPassword(e.target.value)}
-                             type="password" name="password" id="password" placeholder="Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                             type="password" name="password" id="password" placeholder="Password" className="form-control"/>
                     </div>
 
                     <div className="mb-3" style={{ background: '#454d55' }}>
-                      <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                      <label htmlFor="name" className="form-label mb-2" style={{ color: 'white' }}>Name</label>
                       <input 
                           value={name}
                           required
                           onChange={(e) => setName(e.target.value)}
-                          type="name" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name"/>
+                          type="name" name="name" id="name" className="form-control" placeholder="Name"/>
                     </div>
 
                     <div className="mb-3" style={{ background: '#454d55' }}>
-                      <label htmlFor="re-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
+                      <label htmlFor="re-password" className="form-label mb-2" style={{ color: 'white' }}>Confirm Password</label>
                       <input 
                           value={re_password}
                           required
                           onChange={(e) => setRePassword(e.target.value)}
-                          type="password" name="re-password" id="re-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                          type="password" name="re-password" id="re-password" placeholder="Password" className="form-control" />
                     </div>
+    
 
-            {handleMatch() ? false : <p className="text-sm font-medium text-red-500">Passwords must match</p>}
+                    {handleMatch() ? false : <p className="text-sm font-medium text-red-500">Passwords must match</p>}
 
-              <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign up</button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Have an account? <Link to={'/login'} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in</Link>
-              </p>
-            </form>
+                    <button type="submit" className="btn btn-primary w-100 mb-3" style={{ color: 'white' }}>Sign up</button>
+                    <p className="text-sm text-gray-500">
+                         Have an account? <Link to={'/login'} className="font-weight-bold text-primary">Sign in</Link>
+                    </p>
+                </form>
               </div>
           </div>
         </div>

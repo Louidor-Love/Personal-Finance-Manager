@@ -95,12 +95,12 @@ port = os.getenv("PORT")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'finance',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',  # Cambia esto si tu base de datos está en otro host
-        'PORT': '3306',       # Cambia el puerto si es necesario
+        'USER': 'dblove_user',
+        'PASSWORD': '3QtW4WoOTHjiHgXuhUZ3ckAszTAgdcoC',
+        'HOST': 'dpg-cogpcme3e1ms73e78ggg-a.oregon-postgres.render.com',  # Cambia esto si tu base de datos está en otro host
+        'PORT': '5432',       # Cambia el puerto si es necesario
     }
 }
 
